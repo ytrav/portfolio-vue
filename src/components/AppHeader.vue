@@ -5,6 +5,9 @@
 </template>
 
 <style lang="scss" scoped>
+$primary: #00315f;
+$bg1: #efffff;
+$bg2: #e3f5f7;
 
 a {
     text-decoration: none;
@@ -16,6 +19,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    color: $primary;
     #anchors {
         display: flex;
         justify-content: space-between;

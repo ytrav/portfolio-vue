@@ -40,14 +40,13 @@ $bg2: #e3f5f7;
   box-sizing: border-box;
   font-family: "Kanit", Verdana, Geneva, Tahoma, sans-serif;
   scroll-behavior: smooth;
-  // border: 1px solid rgba(255, 0, 0, 0.479);
+  border: 1px solid rgba(255, 0, 0, 0.479);
 }
 
 html {
-  background-color: $bg1;
+  background-color: $bg2;
   height: 100%;
   overflow-x: hidden;
-  
 }
 
 body,
