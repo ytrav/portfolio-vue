@@ -1,21 +1,14 @@
 <template>
-  <div id="landing">
-    <AppCTA />
-    <img src="../assets/portrait.png" alt="portrait" />
-    <!-- <nav>
-      <a href="#" @click="move('home')" :class="{ selected: isHome }">Home</a>
-      <a @click="move('about')" :class="{ selected: isAbout }">About</a>
-      <a @click="move('exp')" :class="{ selected: isExp }">Experience</a>
-      <a @click="move('work')" :class="{ selected: isWork }">Work</a>
-      <a @click="move('contacts')" :class="{ selected: isContacts }"
-        >Contacts</a
-      >
-    </nav> -->
+  <div class="landing-grid">
+    <div class="cta-g"><AppCTA /></div>
+    <div class="img-g"><img src="../assets/portrait.png" alt="portrait" /></div>
+    <div class="h-g"><AppHeader /></div>
   </div>
 </template>
 
 <script>
 import AppCTA from "./AppCTA.vue";
+import AppHeader from "./AppHeader.vue";
 
 export default {
   data() {
@@ -30,49 +23,7 @@ export default {
 
   components: {
     AppCTA,
-  },
-  methods: {
-    move(tab) {
-      switch (tab) {
-        case "home":
-          this.isHome = true;
-          this.isAbout = false;
-          this.isExp = false;
-          this.isWork = false;
-          this.isContacts = false;
-          break;
-        case "about":
-          this.isHome = false;
-          this.isAbout = true;
-          this.isExp = false;
-          this.isWork = false;
-          this.isContacts = false;
-          break;
-        case "exp":
-          this.isHome = false;
-          this.isAbout = false;
-          this.isExp = true;
-          this.isWork = false;
-          this.isContacts = false;
-          break;
-        case "work":
-          this.isHome = false;
-          this.isAbout = false;
-          this.isExp = false;
-          this.isWork = true;
-          this.isContacts = false;
-          break;
-        case "contacts":
-          this.isHome = false;
-          this.isAbout = false;
-          this.isExp = false;
-          this.isWork = false;
-          this.isContacts = true;
-          break;
-        default:
-          break;
-      }
-    },
+    AppHeader,
   },
 };
 </script>
@@ -87,10 +38,12 @@ img {
 }
 
 #landing {
+  padding: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   justify-items: center;
+  height: 82vh;
   // flex-wrap: wrap-reverse;
   // height: 50%;
   // border: 1px solid red;
@@ -162,4 +115,39 @@ nav {
 //   // }
 
 // }
+.landing-grid {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 1fr 1.3fr 1.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  height: 91vh;
+  padding: 60px;
+  grid-template-areas:
+    "h-g . img-g"
+    ". . img-g"
+    "cta-g . img-g"
+    ". . img-g";
+}
+
+.cta-g {
+  grid-area: cta-g;
+}
+
+.h-g {
+  grid-area: h-g;
+}
+
+.img-g {
+  grid-area: img-g;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    zoom: 140%;
+  }
+}
 </style>
