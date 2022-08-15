@@ -116,7 +116,6 @@ nav {
 
 // }
 .landing-grid {
-  
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.4fr 1fr 1.3fr 1.3fr;
@@ -148,6 +147,42 @@ nav {
   align-items: center;
   img {
     zoom: 140%;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 672px) {
+  .landing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1.7fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "h-g"
+      "img-g"
+      "cta-g";
+  }
+
+  .h-g {
+    grid-area: h-g;
+  }
+
+  .img-g {
+    grid-area: img-g;
+    display: flex;
+    justify-content: flex-start;
+    img {
+      height: 19vh;
+      width: 30vw;
+      object-fit: cover;
+      object-position: 100% 0;
+      zoom: 240%;
+    }
+  }
+
+  .cta-g {
+    grid-area: cta-g;
   }
 }
 </style>

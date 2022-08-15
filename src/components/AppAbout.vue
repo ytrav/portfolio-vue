@@ -10,14 +10,17 @@
       <h1>About Me</h1>
       <div id="about-p">
         <p>
-          My name is Anton Shevchuk and I'm a web developer from <a href="#">Ukraine</a>,
-          currently working at the Hanover Medical School in <a href="#">Hanover, Lower
-          Saxony, Germany</a>.
+          My name is Anton Shevchuk and I'm a web developer from
+          <a href="https://en.wikipedia.org/wiki/Ukraine" target="_blank">Ukraine</a>, currently working at the Hanover Medical
+          School in <a href="https://goo.gl/maps/Fy9jpgmdEPoKWERv5" target="_blank">Hanover, Lower Saxony, Germany</a>.
         </p>
         <p>
           I started learning programming when I was 15 years old. I was studying
-          Front-End development at the <a href="https://ucode.world/en/" target=”_blank”>ucode IT Academy</a> in <a href="#">Kyiv, Ukraine</a>, from I
-          bear most of my knowledge.
+          Front-End development at the
+          <a href="https://ucode.world/en/" target="”_blank”"
+            >ucode IT Academy</a
+          >
+          in <a href="https://goo.gl/maps/FpxYVbHm6HkBFvyP7" target="_blank">Kyiv, Ukraine</a>, from I bear most of my knowledge.
         </p>
         <p>
           But my progress didn't stop there, as I continued to expand my
@@ -26,10 +29,13 @@
         </p>
       </div>
       <h2></h2>
-      <h1>Skill Set</h1>
+      <h1 id="skills">Skill Set</h1>
       <h2>Front-End</h2>
       <div class="icon-box">
-        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+          target="_blank"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               d="M12,17.56L16.07,16.43L16.62,10.33H9.38L9.2,8.3H16.8L17,6.31H7L7.56,12.32H14.45L14.22,14.9L12,15.5L9.78,14.9L9.64,13.24H7.64L7.93,16.43L12,17.56M4.07,3H19.93L18.5,19.2L12,21L5.5,19.2L4.07,3Z"
@@ -37,7 +43,10 @@
           </svg>
           <span>HTML5</span>
         </a>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+          target="_blank"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               d="M5,3L4.35,6.34H17.94L17.5,8.5H3.92L3.26,11.83H16.85L16.09,15.64L10.61,17.45L5.86,15.64L6.19,14H2.85L2.06,18L9.91,21L18.96,18L20.16,11.97L20.4,10.76L21.94,3H5Z"
@@ -45,7 +54,10 @@
           </svg>
           <span>CSS3</span>
         </a>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+          target="_blank"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
               d="M3,3H21V21H3V3M7.73,18.04C8.13,18.89 8.92,19.59 10.27,19.59C11.77,19.59 12.8,18.79 12.8,17.04V11.26H11.1V17C11.1,17.86 10.75,18.08 10.2,18.08C9.62,18.08 9.38,17.68 9.11,17.21L7.73,18.04M13.71,17.86C14.21,18.84 15.22,19.59 16.8,19.59C18.4,19.59 19.6,18.76 19.6,17.23C19.6,15.82 18.79,15.19 17.35,14.57L16.93,14.39C16.2,14.08 15.89,13.87 15.89,13.37C15.89,12.96 16.2,12.64 16.7,12.64C17.18,12.64 17.5,12.85 17.79,13.37L19.1,12.5C18.55,11.54 17.77,11.17 16.7,11.17C15.19,11.17 14.22,12.13 14.22,13.4C14.22,14.78 15.03,15.43 16.25,15.95L16.67,16.13C17.45,16.47 17.91,16.68 17.91,17.26C17.91,17.74 17.46,18.09 16.76,18.09C15.93,18.09 15.45,17.66 15.09,17.06L13.71,17.86Z"
@@ -70,7 +82,7 @@
           <span>Sass</span>
         </a>
       </div>
-      
+
       <h2>Software</h2>
       <div class="icon-box">
         <a href="https://code.visualstudio.com/" target="_blank">
@@ -197,13 +209,30 @@ h2 {
 }
 
 p {
-    text-align: justify;
+  text-align: justify;
 }
+
+#about-p p a {
+  &:hover {
+    // border: 2px solid $bg1;
+    // border-style: none none solid none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    color: $bg2;
+  }
+  // padding: -5px;
+}
+
+#skills {
+  margin-bottom: -60px;
+}
+
 .icon-box {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 60px;
+  margin: 0 40px 0 40px;
   svg {
     width: 100px;
     fill: $bg1;
