@@ -1,6 +1,5 @@
 <template>
   <div id="about">
-    <!-- <p>hel wrld</p> -->
     <a id="down" href="#about-me">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
@@ -11,8 +10,12 @@
       <div id="about-p">
         <p>
           My name is Anton Shevchuk and I'm a web developer from
-          <a href="https://en.wikipedia.org/wiki/Ukraine" target="_blank">Ukraine</a>, currently working at the Hanover Medical
-          School in <a href="https://goo.gl/maps/Fy9jpgmdEPoKWERv5" target="_blank">Hanover, Lower Saxony, Germany</a>.
+          <a href="https://en.wikipedia.org/wiki/Ukraine" target="_blank"
+            >Ukraine</a
+          >, currently working at the Hanover Medical School in
+          <a href="https://goo.gl/maps/Fy9jpgmdEPoKWERv5" target="_blank"
+            >Hanover, Lower Saxony, Germany</a
+          >.
         </p>
         <p>
           I started learning programming when I was 15 years old. I was studying
@@ -20,7 +23,10 @@
           <a href="https://ucode.world/en/" target="”_blank”"
             >ucode IT Academy</a
           >
-          in <a href="https://goo.gl/maps/FpxYVbHm6HkBFvyP7" target="_blank">Kyiv, Ukraine</a>, from I bear most of my knowledge.
+          in
+          <a href="https://goo.gl/maps/FpxYVbHm6HkBFvyP7" target="_blank"
+            >Kyiv, Ukraine</a
+          >, from I bear most of my knowledge.
         </p>
         <p>
           But my progress didn't stop there, as I continued to expand my
@@ -30,6 +36,41 @@
       </div>
       <h2></h2>
       <h1 id="skills">Skill Set</h1>
+
+      <h2>Languages</h2>
+      <div id="language-flex">
+        <div id="language-box">
+          <div class="language">
+            <img src="../assets/ukflag.png" alt="Flag of The UK" />
+            <span>English &#8212; Fluent</span>
+          </div>
+          <div class="language">
+            <img src="../assets/ukraineflag.png" alt="Flag of Ukraine" />
+            <span>Ukrainian &#8212; Native</span>
+          </div>
+          <div class="language">
+            <img src="../assets/germanyflag.png" alt="Flag of Germany" />
+            <span>German &#8212; Intermediate</span>
+          </div>
+          <div class="language">
+            <img src="../assets/polandflag.png" alt="Flag of Poland" />
+            <span>Polish &#8212; Intermediate</span>
+          </div>
+          <div class="language">
+            <img src="../assets/russiaflag.png" alt="Flag of Russia" />
+            <span>Russian &#8212; Fluent</span>
+          </div>
+        </div>
+        <div id="language-desc">
+          <p>
+            I grew up speaking Ukrainian, and learned Russian along the way because of the cultural influence. Learning English I started from an early age of just 4 years old, and I have been learning it ever since. Now I consider myself fluent in English, and use it to work now, while mastering my German. I started learning Polish as a hobby, to expand my knowledge and to improve my communication skills. I want to be considered a polyglot one day.
+          </p>
+          <p>
+            I started learning German in middle school, but continued after I relocated to Germany, to be able to communicate with people and especially my coworkers, those who aren't as good with English.
+          </p>
+        </div>
+      </div>
+
       <h2>Front-End</h2>
       <div class="icon-box">
         <a
@@ -212,6 +253,44 @@ p {
   text-align: justify;
 }
 
+#language-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 60px;
+  gap: 20px;
+  // p {
+  //   max-width: 300px;
+  // }
+}
+
+#language-desc {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+#language-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 420px;
+  flex-grow: 2;
+}
+
+.language {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  img {
+    zoom: 40%;
+  }
+}
+
 #about-p p a {
   &:hover {
     // border: 2px solid $bg1;
@@ -261,6 +340,7 @@ p {
 #about {
   background-color: $primary;
   color: $bg1;
+  z-index: 2;
   //   height: 110vh;
 }
 #down {
@@ -278,6 +358,18 @@ p {
       fill: $bg2;
       transform: translateY(10px);
     }
+  }
+}
+
+@media only screen and (min-width: 1300px ) {
+  #language-desc {
+    max-width: 500px;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (min-width: 2040px ) {
+  #language-desc {
+    max-width: 1000px;
   }
 }
 </style>

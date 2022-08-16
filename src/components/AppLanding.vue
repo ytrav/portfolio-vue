@@ -146,12 +146,12 @@ nav {
   justify-content: center;
   align-items: center;
   img {
-    zoom: 140%;
+    zoom: 100%;
     object-fit: cover;
   }
 }
 
-@media only screen and (max-width: 672px) {
+@media only screen and (max-width: 740px) {
   .landing-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -172,12 +172,14 @@ nav {
     grid-area: img-g;
     display: flex;
     justify-content: flex-start;
+    z-index: -1;
     img {
       height: 19vh;
       width: 30vw;
       object-fit: cover;
       object-position: 100% 0;
       zoom: 240%;
+      z-index: -2;
     }
   }
 
