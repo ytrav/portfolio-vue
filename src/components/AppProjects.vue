@@ -14,7 +14,7 @@
     <h2>Work Projects</h2>
     <div class="projects">
       <div class="card" v-for="project in workProjects" :key="project">
-        <div class="primg"><img :src="project.img" :alt="project.alt" /></div>
+        <div class="primg"><img :src="getImagePath(project)" :alt="project.alt" /></div>
         <div class="prinfo">
           <h3>{{ project.name }}</h3>
           <span>{{ project.year }}</span>
@@ -30,51 +30,57 @@ export default {
   name: "AppProjects",
   //   components: {
   //     AppProjectCard,
+  methods: {
+    // method that gets dynamic image path from project object
+    getImagePath: function(project) {
+      return "img/projects/" + project.img;
+    },
+  },
   data() {
     return {
       privateProjects: [
         {
           name: "Tic-Tac-Toe",
-          year: "2022",
-          img: "../assets/school61.jpg",
-          alt: "School 61",
+          year: "May 2022",
+          img: require("../assets/tictactoe.png"),
+          alt: "Tic-Tac-Toe",
         },
         {
           name: "Not Neural News",
-          year: "2021",
-          img: "../assets/portrait.png",
+          year: "Aug 2021",
+          img: require("../assets/notneuralnews.png"),
           alt: "Not Neural News",
         },
         {
           name: "DS_Store",
-          year: "2021",
-          img: "../assets/portrait.png",
+          year: "Sep 2021",
+          img: require("../assets/ds_store.png"),
           alt: "DS_Store",
         },
-        {
-          name: "Personal Portfolio",
-          year: "2022",
-          img: "../assets/portrait.png",
-          alt: "Personal Portfolio",
-        },
-        {
-          name: "Password Guessing Quest",
-          year: "2022",
-          img: "../assets/portrait.png",
-          alt: "Password Guessing Quest",
-        },
+        // {
+        //   name: "Personal Portfolio",
+        //   year: "Aug 2022",
+        //   img: require("../assets/personalportfolio.png"),
+        //   alt: "Personal Portfolio",
+        // },
+        // {
+        //   name: "Password Guessing Quest",
+        //   year: "May 2022",
+        //   img: require("../assets/passwordguessingquest.png"),
+        //   alt: "Password Guessing Quest",
+        // },
       ],
       workProjects: [
         {
           name: "Patient Info System",
-          year: "2022",
-          img: "../assets/portrait.png",
+          year: "Sep 2022",
+          // img: require("../assets/patientinfosystem.png"),
           alt: "Patient Info System",
         },
         {
           name: "MHH Dashboard",
-          year: "2022",
-          img: "../assets/portrait.png",
+          year: "Sep 2022",
+          // img: require("../assets/mhhdashboard.png"),
           alt: "MHH Dashboard",
         },
       ],
@@ -91,10 +97,11 @@ $bg2: #e3f5f7;
 #projects {
   padding: 60px;
   margin-top: 5px;
+  background-color: $primary;
 }
 h1,
 h2 {
-  color: $primary;
+  color: $bg1;
 }
 
 h2 {
@@ -102,7 +109,7 @@ h2 {
 }
 p {
   text-align: justify;
-  color: $primary;
+  color: $bg1;
 }
 
 .projects {
@@ -113,13 +120,33 @@ p {
 
 .card {
   display: flex;
-  background-color: $primary;
-  color: $bg1;
+  background-image: linear-gradient(to left, $bg1, $bg2);
+  color: $primary;
   border-radius: 10px;
+  // max-width: 400px;
+  max-height: 300px;
+  min-width: 200px;
+  max-width: 300px;
   flex-direction: column;
-  justify-content: space-between;
   //   width: 200px;
   //   height: 150px;
   flex-grow: 1;
+  flex-shrink: 1;
+  flex: 1;
+  img {
+    // zoom: 30%;
+    object-fit: fit;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .prinfo {
+    margin: 10px;
+    h3 {
+      font-size: 1.4em;
+    }
+    span {
+      font-size: 1.1em;
+    }
+  }
 }
 </style>

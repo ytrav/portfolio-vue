@@ -5,7 +5,9 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
   >
-    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+    <path
+      d="M21,15.61L19.59,17L14.58,12L19.59,7L21,8.39L17.44,12L21,15.61M3,6H16V8H3V6M3,13V11H13V13H3M3,18V16H16V18H3Z"
+    />
   </svg>
   <Transition name="fade">
     <div @click="open = false" v-if="open" id="burgerdark"></div>
@@ -89,7 +91,6 @@ $bg2: #e3f5f7;
   transition: all 0.3s ease;
 }
 
-
 .slide-enter-from,
 .slide-leave-to {
   opacity: 0;
@@ -115,6 +116,7 @@ $bg2: #e3f5f7;
   mix-blend-mode: difference;
   filter: invert(1);
   z-index: 5;
+  fill: $primary;
 }
 
 html {

@@ -16,7 +16,9 @@ a {
 
 header {
     display: flex;
-    // padding: 60px 0 0 60px;
+    position: absolute;
+    top: 60px;
+    left: 60px;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;

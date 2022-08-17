@@ -19,9 +19,9 @@ $bg1: #efffff;
 $bg2: #e3f5f7;
 
 
-#CTA {
-  margin-top: 50px;
-}
+// #CTA {
+//   margin-top: 50px;
+// }
 
 
 h1 {

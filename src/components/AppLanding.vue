@@ -1,8 +1,12 @@
 <template>
-  <div class="landing-grid">
-    <div class="cta-g"><AppCTA /></div>
-    <div class="img-g"><img src="../assets/portrait.png" alt="portrait" /></div>
-    <div class="h-g"><AppHeader /></div>
+  <AppHeader />
+  <div id="landing">
+    <div id="headcta">
+      <AppCTA />
+    </div>
+    <div id="img">
+      <img src="../assets/portrait.png" alt="portrait" />
+    </div>
   </div>
 </template>
 
@@ -42,35 +46,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  justify-items: center;
   height: 82vh;
-  // flex-wrap: wrap-reverse;
-  // height: 50%;
-  // border: 1px solid red;
-  // margin-top: -70px;
-  // background-image: url("./../assets/lightbg.svg");
-  // background-image: url("");
-  // background-repeat: repeat;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: $bg1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    z-index: -1;
-    // transform: rotate(45deg);
-
-    //parallax
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: repeat;
-  }
 }
+
 nav {
   display: flex;
   flex-direction: column;
@@ -151,40 +129,17 @@ nav {
   }
 }
 
-@media only screen and (max-width: 740px) {
-  .landing-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.3fr 1.7fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "h-g"
-      "img-g"
-      "cta-g";
+@media only screen and (max-width: 852px) {
+  #landing {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: auto;
   }
-
-  .h-g {
-    grid-area: h-g;
+  #img {
+    align-self: center;
   }
-
-  .img-g {
-    grid-area: img-g;
-    display: flex;
-    justify-content: flex-start;
-    z-index: -1;
-    img {
-      height: 19vh;
-      width: 30vw;
-      object-fit: cover;
-      object-position: 100% 0;
-      zoom: 240%;
-      z-index: -2;
-    }
-  }
-
-  .cta-g {
-    grid-area: cta-g;
+  #headcta {
+    height: fit-content;
   }
 }
 </style>

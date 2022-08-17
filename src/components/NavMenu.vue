@@ -4,7 +4,7 @@
     <a @click="closeMenu" href="#about-me">About me</a>
     <a @click="closeMenu" href="#skills">Skill set</a>
     <a @click="closeMenu" href="#exp">Experience</a>
-    <a @click="closeMenu" href="#">Projects</a>
+    <a @click="closeMenu" href="#projects">Projects</a>
     <a @click="closeMenu" href="#">Contact</a>
   </nav>
 </template>
@@ -37,6 +37,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: auto;
   gap: 40px;
   font-size: 1.2em;
   text-align: center;
@@ -51,6 +52,7 @@ nav {
     color: $primary;
     width: 150px;
     height: 50px;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
