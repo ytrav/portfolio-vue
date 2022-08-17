@@ -97,6 +97,17 @@ $bg2: #e3f5f7;
   transform: translateX(200px);
 }
 
+.pop-enter-active,
+.pop-leave-active {
+  transition: all 0.3s ease;
+}
+
+.pop-enter-from,
+.pop-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
 #burgerdark {
   background-color: rgba(0, 0, 0, 0.253);
   position: fixed;
@@ -115,7 +126,7 @@ $bg2: #e3f5f7;
   cursor: pointer;
   mix-blend-mode: difference;
   filter: invert(1);
-  z-index: 5;
+  z-index: 11;
   fill: $primary;
 }
 

@@ -35,6 +35,7 @@ nav {
   top: 0;
   bottom: 0;
   display: flex;
+  z-index: 10;
   flex-direction: column;
   justify-content: center;
   overflow-y: auto;

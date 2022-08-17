@@ -12,11 +12,13 @@ $bg2: #e3f5f7;
 a {
     text-decoration: none;
     color: inherit;
+    z-index: 0;
 }
 
 header {
     display: flex;
     position: absolute;
+    z-index: 0;
     top: 60px;
     left: 60px;
     justify-content: space-between;

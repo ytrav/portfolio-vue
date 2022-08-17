@@ -1,6 +1,6 @@
 <template>
-  <AppHeader />
   <div id="landing">
+  <AppHeader />
     <div id="headcta">
       <AppCTA />
     </div>

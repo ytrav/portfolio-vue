@@ -7,8 +7,8 @@
       Sass
     </p>
     <div id="ctas">
-      <a>Contact me</a>
-      <a>Projects</a>
+      <a href="#contact">Contact me</a>
+      <a href="#projects">Projects</a>
     </div>
   </div>
 </template>
@@ -53,6 +53,7 @@ p {
     border-radius: 500px;
     flex-grow: 1;
     border: 2px solid $primary;
+    text-decoration: none;
     padding: 10px;
     font-size: 1.1em;
     text-align: center;
