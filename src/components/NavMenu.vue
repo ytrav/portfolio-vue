@@ -5,7 +5,7 @@
     <a @click="closeMenu" href="#skills">Skill set</a>
     <a @click="closeMenu" href="#exp">Experience</a>
     <a @click="closeMenu" href="#projects">Projects</a>
-    <a @click="closeMenu" href="#">Contact</a>
+    <a @click="closeMenu" href="#contact">Contact</a>
   </nav>
 </template>
 

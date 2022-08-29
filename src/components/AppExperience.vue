@@ -26,6 +26,7 @@ $bg2: #e3f5f7;
 #exp {
   padding: 60px;
   margin-top: 5px;
+  
 }
 
 h1,

@@ -92,4 +92,12 @@ p {
 //     margin-top: -150px;
 //   }
 // }
+
+// make buttons width auto if screeen width less that 360px
+
+@media only screen and (max-width: 345px) {
+  #CTA {
+    margin-top: 100px;
+  }
+}
 </style>

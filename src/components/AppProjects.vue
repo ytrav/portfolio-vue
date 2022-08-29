@@ -1,18 +1,13 @@
 <template>
-  <div id="projects">
+  <div id="projects" tabindex="0" @keydown.esc="popup = false">
     <h1>Projects</h1>
     <h2>Personal Projects</h2>
     <div class="projects">
-      <div
-        class="card"
-        @click="openPopup(project)"
-        v-for="project in privateProjects"
-        :key="project"
-      >
+      <div class="card" @click="openPopup(project)" v-for="project in privateProjects" :key="project">
         <div class="primg"><img :src="project.img" :alt="project.alt" /></div>
         <div class="prinfo">
-          <h3>{{ project.name }}</h3>
-          <span>{{ project.year }}</span>
+          <h3>{{  project.name  }}</h3>
+          <span>{{  project.year  }}</span>
         </div>
       </div>
     </div>
@@ -24,35 +19,29 @@
       <div v-if="popup" class="popup">
         <img :src="project.img" :alt="project.alt" />
         <div class="popupinfo">
-          <div @click="popup = false" class="close">
+          <div @click="popup = false" class="close">Esc
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
-                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-              />
+                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
             </svg>
           </div>
-          <h1>{{ project.name }}</h1>
-          <h3>{{ project.year }}</h3>
-          <p>{{ project.desc }}</p>
-          <div id="pop-cta">
-            <a class="primary-button" href="#">Try it</a>
-            <a class="secondary-button" href="#">See code on GitHub</a>
+          <h1>{{  project.name  }}</h1>
+          <h3>{{  project.year  }}</h3>
+          <p>{{  project.desc  }}</p>
+          <div :class="project.status" id="pop-cta">
+            <a class="primary-button" :href="project.tryLink" target="_blank">Try it</a>
+            <a class="secondary-button" :href="project.codeLink" target="_blank">See code on GitHub</a>
           </div>
         </div>
       </div>
     </Transition>
 
     <div class="projects">
-      <div
-        class="card"
-        @click="openPopup(project)"
-        v-for="project in workProjects"
-        :key="project"
-      >
+      <div class="card" @click="openPopup(project)" v-for="project in workProjects" :key="project">
         <div class="primg"><img :src="project.img" :alt="project.alt" /></div>
         <div class="prinfo">
-          <h3>{{ project.name }}</h3>
-          <span>{{ project.year }}</span>
+          <h3>{{  project.name  }}</h3>
+          <span>{{  project.year  }}</span>
         </div>
       </div>
     </div>
@@ -70,6 +59,7 @@ export default {
       this.project = project;
       this.popup = true;
     },
+
   },
   data() {
     return {
@@ -82,6 +72,9 @@ export default {
           img: require("../assets/tictactoe.png"),
           alt: "Tic-Tac-Toe",
           desc: "A simple tic-tac-toe game built with vanilla HTML, CSS and JS. Allows for two players to play against each other. Doesn't feature any AI yet.",
+          tryLink: "https://ytrav.github.io/quest2",
+          codeLink: "https://github.com/ytrav/quest2",
+          status: "private",
         },
         {
           name: "Not Neural News",
@@ -89,6 +82,9 @@ export default {
           img: require("../assets/notneuralnews.png"),
           alt: "Not Neural News",
           desc: "A website that generateds random news articles from a lot of headline pieces. The website is built with vanilla HTML, CSS and JS.",
+          tryLink: "https://ytrav.github.io/notneuralnews",
+          codeLink: "https://github.com/ytrav/notneuralnews",
+          status: "private",
         },
         {
           name: "DS_Store",
@@ -96,6 +92,9 @@ export default {
           img: require("../assets/ds_store.png"),
           alt: "DS_Store",
           desc: "An online shopping website that allows users to buy items. Or at least emulates such expierence. The website is built with vanilla HTML, CSS and JS.",
+          tryLink: "https://ytrav.github.io/ds_store",
+          codeLink: "https://github.com/ytrav/ds_store",
+          status: "private",
         },
         {
           name: "Personal Portfolio",
@@ -103,6 +102,9 @@ export default {
           img: require("../assets/personalportfolio.png"),
           alt: "Personal Portfolio",
           desc: "This is my personal portfolio website. It is built with Vue.js and Sass. You're browsing it right now.",
+          tryLink: "https://ytrav.github.io/portfolio-vue",
+          codeLink: "https://github.com/ytrav/portfolio-vue",
+          status: "private",
         },
         {
           name: "Password Guessing Quest",
@@ -110,20 +112,27 @@ export default {
           img: require("../assets/passwordguessingquest.png"),
           alt: "Password Guessing Quest",
           desc: "A simple guessing game that allows the user to guess a password to log into a fictional bake account. The website is built with vanilla HTML, CSS and JS.",
+          tryLink: "https://ytrav.github.io/quest",
+          codeLink: "https://github.com/ytrav/quest",
+          status: "private",
         },
       ],
       workProjects: [
         {
           name: "Patient Info System",
           year: "Sep 2022",
-          // img: require("../assets/patientinfosystem.png"),
+          img: require("../assets/patientinfosystem.png"),
           alt: "Patient Info System",
+          desc: "A patient information system that allows doctors to input patient details and view patient information. It was developed as an alternative to the SAP data management software. The website is built with Vue.js, HTML, and CSS. Try and code links are not available for work projects.",
+          status: "work",
         },
         {
           name: "MHH Dashboard",
           year: "Sep 2022",
           // img: require("../assets/mhhdashboard.png"),
           alt: "MHH Dashboard",
+          desc: "A dashboard that allows doctors to view and manage patients around the hospital, manage rooms and quickly see their symptoms, status and importance. The website is built with Vue.js, HTML, and CSS. Try and code links are not available for work projects.",
+          status: "work",
         },
       ],
     };
@@ -141,6 +150,7 @@ $bg2: #e3f5f7;
   margin-top: 5px;
   background-color: $primary;
 }
+
 h1,
 h2 {
   color: $bg1;
@@ -149,6 +159,7 @@ h2 {
 h2 {
   margin: 100px 0 20px 0;
 }
+
 p {
   text-align: justify;
   color: $bg1;
@@ -172,25 +183,27 @@ p {
   flex-direction: column;
   //   width: 200px;
   //   height: 150px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex: 1;
   transition: transform 0.1s ease-out;
   cursor: pointer;
+
   &:hover {
     transform: scale(1.1);
   }
+
   img {
     // zoom: 30%;
     object-fit: fit;
     width: 100%;
     border-radius: 10px 10px 0 0;
   }
+
   .prinfo {
     margin: 10px;
+
     h3 {
       font-size: 1.4em;
     }
+
     span {
       font-size: 1.1em;
     }
@@ -212,6 +225,8 @@ p {
   z-index: 12;
 }
 
+
+
 .popup {
   position: fixed;
   top: 10vh;
@@ -228,6 +243,7 @@ p {
   justify-content: space-between;
   gap: 50px;
   align-content: stretch;
+
   img {
     // zoom: 30%;
     object-fit: cover;
@@ -240,16 +256,23 @@ p {
     flex-shrink: 2;
     border-radius: 15px;
   }
+
   .popupinfo {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     flex-grow: 1;
+
+    #pop-cta.work {
+      display: none;
+    }
+
     #pop-cta {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       justify-self: flex-end;
+
       a {
         text-decoration: none;
         margin-top: 15px;
@@ -261,36 +284,45 @@ p {
         transition: background-color 0.1s ease-out;
       }
     }
+
     h1 {
       line-height: 35px;
       margin-right: 30px;
     }
+
     p {
       max-width: 300px;
       text-align: justify;
     }
+
     .primary-button {
       color: $primary;
       background-color: $bg1;
+
       // border: 2px solid $bg1;
       &:hover {
         background-color: #d4e4e6;
       }
+
       &:active {
         background-color: #abb8b9;
       }
     }
+
     .secondary-button {
       color: $bg1;
       border: 2px solid $bg1;
+
       &:hover {
         background-color: #004483;
       }
+
       &:active {
         background-color: #004c94;
       }
     }
   }
+
   /* ===== Scrollbar CSS ===== */
   /* Firefox */
   scrollbar-width: thin;
@@ -310,6 +342,7 @@ p {
     background-color: $bg1;
     border-radius: 10px;
     border: 2px none #ffffff;
+
     &:hover {
       background-color: #c6d9db;
     }
@@ -319,18 +352,30 @@ p {
 .close {
   fill: $bg1;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
   position: absolute;
-  border-radius: 50%;
+  border-radius: 5000px;
   backdrop-filter: blur(5px);
   top: 20px;
   right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin-top: -5px;
+    width: 30px;
+    height: 30px;
+  }
+
   &:hover {
     svg {
       fill: #c6d9db;
     }
+
+    color: #c6d9db;
   }
+
   &:active {
     svg {
       fill: #abb8b9;
@@ -345,17 +390,23 @@ p {
     align-content: center;
     justify-content: center;
     padding: 60px 20px 20px 20px;
+
     img {
       max-width: 100%;
+      margin-top: 50px;
     }
+
     .popupinfo {
       align-items: stretch;
+
       p {
         max-width: 100%;
       }
+
       .primary-button,
       .secondary-button {
         align-self: flex-start;
+        width: 100% !important;
       }
     }
   }
@@ -372,21 +423,30 @@ p {
 @media only screen and (max-width: 540px) {
   .popup {
     .popupinfo {
+
       .primary-button,
       .secondary-button {
-        width: 100%;
+        width: 100% !important;
+      }
+
+      #pop-cta {
+        a {
+          width: 100% !important;
+        }
       }
     }
   }
 }
 
-@media only screen and (max-width: 400px), (max-height: 411px) {
+@media only screen and (max-width: 400px),
+(max-height: 411px) {
   .popup {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     border-radius: 0;
+
     .close {
       position: fixed;
       top: 15px;
@@ -394,4 +454,24 @@ p {
     }
   }
 }
+
+@media only screen and (max-width: 831px) and (orientation: landscape) {
+  .popup {
+    .popupinfo {
+
+      .primary-button,
+      .secondary-button {
+        max-width: 160px;
+      }
+    }
+  }
+}
+
+// // remove #projects padding when viewport width is less than 360px
+
+// @media only screen and (max-width: 360px) {
+//   #projects {
+//     padding: 0;
+//   }
+// }
 </style>

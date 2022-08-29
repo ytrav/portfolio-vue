@@ -21,6 +21,8 @@
   <AppAbout />
   <AppExperience />
   <AppProjects />
+  <AppContact />
+  <AppFooter />
 </template>
 
 <script>
@@ -29,6 +31,8 @@ import AppAbout from "./components/AppAbout.vue";
 import AppExperience from "./components/AppExperience.vue";
 import NavMenu from "./components/NavMenu.vue";
 import AppProjects from "./components/AppProjects.vue";
+import AppContact from "./components/AppContact.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   name: "App",
@@ -48,6 +52,8 @@ export default {
     AppExperience,
     NavMenu,
     AppProjects,
+    AppContact,
+    AppFooter,
   },
 };
 </script>
@@ -74,6 +80,7 @@ $bg2: #e3f5f7;
   font-family: "Kanit", Verdana, Geneva, Tahoma, sans-serif;
   scroll-behavior: smooth;
   // border: 1px solid rgba(255, 0, 0, 0.479);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .fade-enter-active,
@@ -124,35 +131,48 @@ $bg2: #e3f5f7;
   top: 10px;
   right: 10px;
   cursor: pointer;
-  mix-blend-mode: difference;
-  filter: invert(1);
+  // mix-blend-mode: difference;
+  // filter: invert(1);
   z-index: 11;
   fill: $primary;
+  stroke: $bg1;
+  stroke-width: 0.7;
 }
 
 html {
   background-color: $bg2;
   overflow-x: hidden;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 5000px;
-    background-color: $bg1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    z-index: -1;
-    overflow: hidden;
-    // transform: rotate(45deg);
+  background-color: $bg1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  // z-index: -1;
+  // overflow: hidden;
+  // transform: rotate(45deg);
 
-    //parallax
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: repeat;
-  }
+  //parallax
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat;
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   // height: 6500px;
+  //   background-color: $bg1;
+  //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  //   z-index: -1;
+  //   overflow: hidden;
+  //   // transform: rotate(45deg);
+
+  //   //parallax
+  //   background-attachment: fixed;
+  //   background-position: center;
+  //   background-repeat: repeat;
+  // }
 }
 
 // body,
